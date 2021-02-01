@@ -1,0 +1,26 @@
+language: node_js
+cache:
+  directories:
+  - node_modules
+  - "~/.npm"
+node_js:
+- '12'
+git:
+  depth: 3
+script:
+- yarn test
+notifications:
+  email:
+    reciepients:
+    - ingecarlos.gutierrez@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key:
+    secure: 
+  app: telegrambotcargdev
+  on:
+    repo: CarGDev/botTelegram
